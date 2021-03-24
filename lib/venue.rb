@@ -21,4 +21,10 @@ class Venue
         return false if @patrons.length < 4
         true
     end
+
+    def kick_out
+        while over_capacity? == true 
+           @patrons.shift 
+        end
+    end
 end
