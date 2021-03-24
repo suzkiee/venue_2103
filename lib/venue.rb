@@ -18,7 +18,7 @@ class Venue
     end
 
     def over_capacity? 
-        return false if @patrons.length < 4
+        return false if @patrons.length <= 4
         true
     end
 
