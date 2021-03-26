@@ -1,4 +1,4 @@
- require 'rspec'
+  require 'rspec'
 require './lib/venue'
 
 describe Venue do
@@ -37,7 +37,7 @@ describe Venue do
       venue.add_patron('Mike')
       venue.add_patron('Megan')
       venue.add_patron('Bob')
-
+      
       expect(venue.patrons).to eq ['Mike', 'Megan', 'Bob']
     end
   end
@@ -62,21 +62,21 @@ describe Venue do
 
       expect(venue.over_capacity?).to eq false
     end
-  end
 
-  it 'returns true if number of patrons is greater than capacity' do
-    venue = Venue.new('Bluebird', 4)
-    venue.add_patron('Mike')
-    venue.add_patron('Megan')
-    venue.add_patron('Bob')
-    venue.add_patron('James')
-    venue.add_patron('Cat')
-
-    expect(venue.over_capacity?).to eq true
+    it 'returns true if number of patrons is greater than capacity' do
+      venue = Venue.new('Bluebird', 4)
+      venue.add_patron('Mike')
+      venue.add_patron('Megan')
+      venue.add_patron('Bob')
+      venue.add_patron('James')
+      venue.add_patron('Cat')
+  
+      expect(venue.over_capacity?).to eq true
+    end
   end
 
   describe '#kick_out' do
-    it 'removes earlier patrons while until no longer over capacity' do
+    it 'removes earlier patrons until no longer over capacity' do
       venue = Venue.new('Bluebird', 4)
       venue.add_patron('Mike')
       venue.add_patron('Megan')
@@ -84,8 +84,8 @@ describe Venue do
       venue.add_patron('James')
       venue.add_patron('Cat')
       venue.kick_out 
-
-      expect(venue.patrons).to eq ['Bob', 'James', 'Cat']
+   
+      expect(venue.patrons).to eq ['Megan', 'Bob', 'James', 'Cat']
     end  
 
     it 'checks that venue is no longer over capacity after kicking out patrons ' do

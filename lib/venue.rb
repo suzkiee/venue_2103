@@ -14,17 +14,18 @@ class Venue
     end
 
     def yell_at_patrons
-        patrons.map {|patron| patron.upcase}
+        patrons.map do |patron| 
+        patron.upcase
+        end
     end
 
     def over_capacity? 
-        return false if @patrons.length <= 4
-        true
+        patrons.count > capacity
     end
 
     def kick_out
-        while over_capacity? == true 
-           @patrons.shift 
+        while over_capacity?  
+           patrons.shift
         end
     end
 end
